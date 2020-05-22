@@ -1,71 +1,74 @@
 <?php
     header("Content-Type:application/json");
-    $nombre = $_GET['nombre'];
+    
     $nombrePlaneta = $_GET['nombrePlaneta'];
-    if(!empty($nombre) && !empty($nombrePlaneta))
+    if(!empty($nombrePlaneta))
     {
         //Nombre valido
         $peso = $_GET['peso'];
         if(!empty($peso))
         {
           switch ($nombrePlaneta)
-          {
+          {/*El peso de una persona que en la tierra pesa X kg, es de Y kg en el planeta Z"*/
             case "MERCURIO":
+			case "Mercurio":
+			case "mercurio":	  
               $pesoplaneta = $peso * 3.70;
-              $pesoplanetakg = $peso * 0.39;
               $pesoplaneta = round($pesoplaneta, 2);
-              $pesoplanetakg = round($pesoplanetakg, 2);
-              deliver_response(200, "$nombre tu peso en el planeta Mercurio es de $pesoplanetakg y tu masa es de $pesoplaneta", $pesoplaneta);
+              deliver_response(200, "El peso de una persona que en la tierra pesa $peso kg es de $pesoplaneta kg en el planeta $nombrePlaneta", $pesoplaneta);
             break;
             case "VENUS":
+			case "Venus":
+			case "venus":	  
               $pesoplaneta = $peso * 8.87;
-              $pesoplanetakg= $peso * 0.87;
               $pesoplaneta = round($pesoplaneta, 2);
-              $pesoplanetakg = round($pesoplanetakg, 2);
-              deliver_response(200, "$nombre tu peso en el planeta Venus es de $pesoplanetakg y tu masa es de $pesoplaneta", $pesoplaneta);
+              deliver_response(200, "El peso de una persona que en la tierra pesa $peso kg es de $pesoplaneta kg en el planeta $nombrePlaneta", $pesoplaneta);
             break;
             case "MARTE":
+			case "marte":
+			case "Marte":	  
               $pesoplaneta = $peso * 3.71;
-              $pesoplanetakg= $peso * 0.38;
               $pesoplaneta = round($pesoplaneta, 2);
-              $pesoplanetakg = round($pesoplanetakg, 2);
-              deliver_response(200, "$nombre tu peso en el planeta Marte es de $pesoplanetakg y tu masa es de $pesoplaneta", $pesoplaneta);
+              deliver_response(200, "El peso de una persona que en la tierra pesa $peso kg es de $pesoplaneta kg en el planeta $nombrePlaneta", $pesoplaneta);
             break;
             case "JUPITER":
+			case "Jupiter":
+			case "jupiter":	  
               $pesoplaneta = $peso * 23.12;
-              $pesoplanetakg= $peso * 2.55;
               $pesoplaneta = round($pesoplaneta, 2);
-              $pesoplanetakg = round($pesoplanetakg, 2);
-              deliver_response(200, "$nombre tu peso en el planeta Jupiter es de $pesoplanetakg y tu masa es de $pesoplaneta", $pesoplaneta);
+              deliver_response(200, "El peso de una persona que en la tierra pesa $peso kg es de $pesoplaneta kg en el planeta $nombrePlaneta", $pesoplaneta);
             break;
             case "SATURNO":
+			case "saturno":
+			case "Saturno":	  
               $pesoplaneta = $peso * 8.96;
-              $pesoplanetakg= $peso * 0.93;
               $pesoplaneta = round($pesoplaneta, 2);
-              $pesoplanetakg = round($pesoplanetakg, 2);
-              deliver_response(200, "$nombre tu peso en el planeta Saturno es de $pesoplanetakg y tu masa es de $pesoplaneta", $pesoplaneta);
+              deliver_response(200, "El peso de una persona que en la tierra pesa $peso kg es de $pesoplaneta kg en el planeta $nombrePlaneta", $pesoplaneta);
             break;
             case "URANO":
+			case "Urano":
+			case "Urano":	  
               $pesoplaneta = $peso * 8.69;
-              $pesoplanetakg= $peso * 0.99;
               $pesoplaneta = round($pesoplaneta, 2);
-              $pesoplanetakg = round($pesoplanetakg, 2);
-              deliver_response(200, "$nombre tu peso en el planeta Urano es de $pesoplanetakg y tu masa es de $pesoplaneta", $pesoplaneta);
+              deliver_response(200, "El peso de una persona que en la tierra pesa $peso kg es de $pesoplaneta kg en el planeta $nombrePlaneta", $pesoplaneta);
             break;
             case "NEPTUNO":
+			case "Neptuno":
+			case "neptuno":	  
               $pesoplaneta = $peso * 11;
-              $pesoplanetakg= $peso * 1.38;
               $pesoplaneta = round($pesoplaneta, 2);
-              $pesoplanetakg = round($pesoplanetakg, 2);
-              deliver_response(200, "$nombre tu peso en el planeta Neptuno es de $pesoplanetakg y tu masa es de $pesoplaneta", $pesoplaneta);
+              deliver_response(200, "El peso de una persona que en la tierra pesa $peso kg es de $pesoplaneta kg en el planeta $nombrePlaneta", $pesoplaneta);
             break;
             case "PLUTON":
+			case "Pluton":
+			case "Plutón":
+			case "pluton":	  
               $pesoplaneta = $peso * 0.81;
               $pesoplaneta = round($pesoplaneta, 2);
-              deliver_response(200, "$nombre tu peso en el planeta Pluton es de $pesoplaneta", $pesoplaneta);
+              deliver_response(200, "El peso de una persona que en la tierra pesa $peso kg es de $pesoplaneta kg en el planeta $nombrePlaneta", $pesoplaneta);
             break;
             default:
-            echo "Your favorite color is neither red, blue, nor green!";
+            echo "Ops, Hay un problema!";
           }
         }
         else
@@ -75,8 +78,7 @@
     }
     else
     {
-        //Nombre no valido
-        deliver_response(200, "Nombre no valido y nombre de planeta no valido", null);
+        deliver_response(200, "Nombre de planeta no valido", null);
     }
 
     function deliver_response($status, $status_message, $data)
